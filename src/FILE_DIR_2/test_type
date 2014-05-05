@@ -1,0 +1,9 @@
+#!/bin/sh
+./a.out\
+ /etc/passwd\
+ /etc\
+ /dev/initctl\
+ /dev/log\
+ /dev/tty\
+ /dev/scsi/host0/bus0/target0/lun0/cd\
+ /dev/cdrom
