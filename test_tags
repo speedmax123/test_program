@@ -7,19 +7,21 @@
 BUFFSIZE	src/FILE_IO_1/in2out/in2out.c	2;"	d	file:
 DIR_MODE	include/apue.h	33;"	d
 FILE_MODE	include/apue.h	29;"	d
-INCLUDE	src/APUE/Makefile	/^INCLUDE	=	\/home\/speedmax\/code\/apue\/include$/;"	m
-INCLUDE	src/FILE_IO_1/file_hole/Makefile	/^INCLUDE	=	\/home\/speedmax\/code\/apue\/include$/;"	m
-INCLUDE	src/FILE_IO_1/file_offset/Makefile	/^INCLUDE	=	\/home\/speedmax\/code\/apue\/include$/;"	m
-INCLUDE	src/FILE_IO_1/in2out/Makefile	/^INCLUDE	=	\/home\/speedmax\/code\/apue\/include$/;"	m
-INCLUDE	src/NET_IPC_14/bone/Makefile	/^INCLUDE	=	\/home\/speedmax\/code\/apue\/include$/;"	m
-LIB	src/FILE_IO_1/file_hole/Makefile	/^LIB	=	\/home\/speedmax\/code\/apue\/lib\/libapue.a$/;"	m
-LIB	src/FILE_IO_1/in2out/Makefile	/^LIB	=	\/home\/speedmax\/code\/apue\/lib\/libapue.a$/;"	m
-LIB	src/NET_IPC_14/bone/Makefile	/^LIB	=	\/home\/speedmax\/code\/apue\/lib\/libapue.a$/;"	m
+INCLUDE	src/APUE/Makefile	/^INCLUDE	=	\/home\/speedmax\/code\/apue\/test_program\/include$/;"	m
+INCLUDE	src/FILE_DIR_2/Makefile	/^INCLUDE	=	\/home\/speedmax\/code\/apue\/test_program\/include$/;"	m
+INCLUDE	src/FILE_IO_1/file_hole/Makefile	/^INCLUDE	=	\/home\/speedmax\/code\/apue\/test_program\/include$/;"	m
+INCLUDE	src/FILE_IO_1/file_offset/Makefile	/^INCLUDE	=	\/home\/speedmax\/code\/apue\/test_program\/include$/;"	m
+INCLUDE	src/FILE_IO_1/in2out/Makefile	/^INCLUDE	=	\/home\/speedmax\/code\/apue\/test_program\/include$/;"	m
+INCLUDE	src/NET_IPC_14/bone/Makefile	/^INCLUDE	=	\/home\/speedmax\/code\/apue\/test_program\/include$/;"	m
+LIB	src/FILE_DIR_2/Makefile	/^LIB	=	\/home\/speedmax\/code\/apue\/test_program\/lib\/libapue.a$/;"	m
+LIB	src/FILE_IO_1/file_hole/Makefile	/^LIB	=	\/home\/speedmax\/code\/apue\/test_program\/lib\/libapue.a$/;"	m
+LIB	src/FILE_IO_1/in2out/Makefile	/^LIB	=	\/home\/speedmax\/code\/apue\/test_program\/lib\/libapue.a$/;"	m
+LIB	src/NET_IPC_14/bone/Makefile	/^LIB	=	\/home\/speedmax\/code\/apue\/test_program\/lib\/libapue.a$/;"	m
 MAXLINE	include/apue.h	24;"	d
-OBJECT	src/APUE/Makefile	/^OBJECT	=	\/home\/speedmax\/code\/apue\/src\/APUE\/*.o$/;"	m
+OBJECT	src/APUE/Makefile	/^OBJECT	=	\/home\/speedmax\/code\/apue\/test_program\/src\/APUE\/*.o$/;"	m
 SIG_ERR	include/apue.h	38;"	d
 Sigfunc	include/apue.h	/^typedef void Sigfunc(int);		\/* for signal handles *\/$/;"	t
-TARGET	src/APUE/Makefile	/^TARGET	=	\/home\/speedmax\/code\/apue\/lib\/libapue.a$/;"	m
+TARGET	src/APUE/Makefile	/^TARGET	=	\/home\/speedmax\/code\/apue\/test_program\/lib\/libapue.a$/;"	m
 TOK_ADD	src/NET_IPC_14/bone/bone.c	2;"	d	file:
 _APUE_H	include/apue.h	3;"	d
 _XOPEN_SOURCE	include/apue.h	5;"	d
@@ -47,7 +49,7 @@ log_open	src/APUE/apue_log.c	/^log_open(const char * ident, int option, int faci
 log_quit	src/APUE/apue_log.c	/^log_quit(const char * fmt, ...)$/;"	f
 log_ret	src/APUE/apue_log.c	/^log_ret(const char * fmt, ...)$/;"	f
 log_sys	src/APUE/apue_log.c	/^log_sys(const char * fmt, ...)$/;"	f
-main	src/FILE_DIR_2/types.h	/^main(int argc, char *argv[])$/;"	f
+main	src/FILE_DIR_2/types.c	/^main(int argc, char *argv[])$/;"	f
 main	src/FILE_IO_1/fd/fd.c	/^main(int argc, char * argv[])$/;"	f
 main	src/FILE_IO_1/file_hole/file_hole.c	/^main(void)$/;"	f
 main	src/FILE_IO_1/file_offset/file_offset.c	/^main(void)$/;"	f
