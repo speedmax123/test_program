@@ -6,5 +6,3 @@ LOG="ctags.log"
 
 cd $TEST_HOME
 ctags -f $TEST_HOME/test_tags -R>>$LOG_DIR/$LOG 2>$LOG_DIR/$LOG
-
-
