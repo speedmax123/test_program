@@ -36,6 +36,11 @@ main (void) {
 	printf("long is [%lu]\n", sizeof(l));
 	free(ptr);
 	ptr = NULL;
+	int ii = i++;
+	printf("after \"ii=i++\", ii is now [%d]\n", ii);
+	i = 1;
+	ii = ++i;
+	printf("after \"ii=++i\", ii is now [%d]\n", ii);//this means left ++ has a higher priority than =, right ++ oppsites
 	return 0;
 }
 	
