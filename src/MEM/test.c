@@ -4,6 +4,15 @@
 
 #define BUF 4
 
+unsigned getbits (unsigned x, int p, int n) {
+	return (x >> (p+1-n) & ~(~0 << n));
+}
+
+char *tobinary(unsigned int x) {
+	static char res[] = "";
+	return res;
+}
+
 int
 main (void) {
 	char * ptr = NULL;
@@ -41,6 +50,10 @@ main (void) {
 	i = 1;
 	ii = ++i;
 	printf("after \"ii=++i\", ii is now [%d]\n", ii);//this means left ++ has a higher priority than =, right ++ oppsites
+	ii = 13;
+	printf("ii is now %x\n", ii);
+	ii = getbits(ii, 2, 3);
+	printf("now ii should be 5 and ii is %d actually\n", ii);
 	return 0;
 }
 	
