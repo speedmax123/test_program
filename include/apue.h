@@ -58,18 +58,18 @@ int 	tty_raw(int);
 int 	tty_reset(int);
 void 	tty_atexit(void);
 #ifndef	ECHO	/* only if <termios.h> has been included */
-struct termios *tty_termios(void);
+struct 	termios *tty_termios(void);
 #endif
 
 void	sleep_us(unsigned int);
 ssize_t	readn(int, void *, size_t);
 ssize_t writen(int, const void *, size_t);
-void daemonize(const char *);
+void 	daemonize(const char *);
 
-int		s_pipe(int *);
-int		recv_fd(int, size_t (*funct)(int, const void *, size_t));
+int	s_pipe(int *);
+int	recv_fd(int, size_t (*funct)(int, const void *, size_t));
 int 	send_fd(int, int);
-int		send_err(int, int, const char *);
+int	send_err(int, int, const char *);
 int 	serv_listen(const char *);
 int 	serv_accept(int, uid_t *);
 int 	cli_conn(const char *);
@@ -77,7 +77,7 @@ int 	buf_args(char *, int (*func)(int, char **));
 int 	ptym_open(char *, int);
 int 	ptys_open(char *);
 #ifndef TIOCGWINSZ
-int		pty_fork(int *, char *, int, const struct termios *, const struct winszie *);
+int	pty_fork(int *, char *, int, const struct termios *, const struct winszie *);
 #endif
 
 int 	lock_reg(int, int, int, off_t, int, off_t);
