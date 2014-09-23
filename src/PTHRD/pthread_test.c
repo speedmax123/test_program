@@ -31,6 +31,8 @@ main(void) {
 		err_quit("can not create thread: %s\n", strerror(err));
 	}
 	printids("main thread: ");
+	//if the main thread does not sleep for a while and quit imediately,
+	//the new created child thread may not have a chance to execute
 	sleep(1);
 	exit(0);
 }
