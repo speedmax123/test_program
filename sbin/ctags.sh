@@ -1,6 +1,7 @@
 #!/bin/sh
 
-TEST_HOME="/home/speedmax/code/apue/test_program"
+HOME=$(cd && pwd)
+TEST_HOME=$HOME/code/test_program
 LOG_DIR="$TEST_HOME/log"
 LOG="ctags.log"
 
