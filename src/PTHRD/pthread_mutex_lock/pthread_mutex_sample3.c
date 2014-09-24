@@ -30,6 +30,7 @@ foo_alloc(void) {
 		idx = HASH(fp);
 		pthread_mutex_lock(&hashlock);
 		fp -> f_next = fh[idx];
+		fh[idx] = fp -> f_next;
 		pthread_mutex_lock(&fp -> f_lock);
 		pthread_mutex_unlock(&hashlock);
 		/* continue initilize .... */
@@ -50,11 +51,11 @@ foo_find(int id) {
 	struct foo *	fp = NULL;
 	int				idx;
 	
-	idx = HASH(id);
+	idx = HASH(fp);
 	pthread_mutex_lock(&hashlock);
 	for (fp = fh[idx]; fp != NULL; fp = fp -> f_next) {
 		if (fp -> f_id == id) {
-			foo_hold(fp);
+			fp -> f_count++;
 			break;
 		}
 	}
@@ -67,37 +68,26 @@ foo_rele(struct foo * fp) {
 	
 	struct foo * 	tfp;
 	int				idx;
-		
-	pthread_mutex_lock(&fp -> f_lock);
-	if (fp -> f_count == 1) {
-		pthread_mutex_unlock(&fp -> f_lock);
-		pthread_mutex_lock(&hashlock);
-		pthread_mutex_lock(&fp -> f_lock);
-		if (fp -> f_count != 1) {
-			fp -> f_count --;
-			pthread_mutex_unlock(&fp -> f_lock);
-			pthread_mutex_unlock(&hashlock);
-		}
-		/* remove from list */
+	
+	pthread_mutex_lock(&hashlock);
+	if (--fp -> f_count == 0) {
 		idx = HASH(fp);
 		tfp = fh[idx];
-		
 		if (tfp == fp) {
-			fh[idx] = fp -> f_next;
+			fh[idx] == fp -> f_next;
 		}
 		else {
 			while (tfp -> f_next != fp) {
 				tfp = tfp -> f_next;
 			}
-			tfp -> f_next = fp -> f_next;
+			//maybe till the end
 		}
+		tfp -> f_next = fp -> f_next;
 		pthread_mutex_unlock(&hashlock);
 		pthread_mutex_unlock(&fp -> f_lock);
-		pthread_mutex_destroy(&fp -> f_lock);
 		free(fp);
-	}
-	else {
-		fp -> f_count--;
-		pthread_mutex_unlock(&fp -> f_lock);
 	}		
+	else {
+		pthread_mutex_unlock(&hashlock);
+	}
 }
