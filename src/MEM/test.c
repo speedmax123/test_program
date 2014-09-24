@@ -54,6 +54,11 @@ main (void) {
 	printf("ii is now %x\n", ii);
 	ii = getbits(ii, 2, 3);
 	printf("now ii should be 5 and ii is %d actually\n", ii);
+	int * index = calloc(3, sizeof(index));
+	ii = 1;
+	for(; ii <= 3; index[ii] = ii, printf("index[%d] = %d\n", ii, index[ii]), ii++);
+	free(index);
+	index = NULL;
 	return 0;
 }
 	
