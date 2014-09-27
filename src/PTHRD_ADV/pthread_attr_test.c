@@ -23,5 +23,9 @@ main(void) {
 #ifdef _POSIX_THREAD_SAFE_FUNCTIONS
 	printf("posix_thread_safe_function defined\n");
 #endif
+#ifdef _SC_THREAD_KEYS_MAX
+	printf("pthread_keys_max is %d\n", _SC_THREAD_KEYS_MAX);
+#endif
+	printf("pthread_destructor_iterations is %d\n", _SC_THREAD_DESTRUCTOR_ITERATIONS);
 	return 0;
 }
