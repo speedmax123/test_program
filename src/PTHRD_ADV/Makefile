@@ -1,6 +1,6 @@
 INCLUDE	=	/home/speedmax/code/test_program/include
 LIB	=		/home/speedmax/code/test_program/lib/libapue.a
-LD = 		-lpthread
+LD =		-lpthread
 make:
 	clang -I$(INCLUDE) -Wall pthread_attr_test.c $(LIB) $(LD) -o pthread_attr_test.out
 	clang -I$(INCLUDE) -Wall pthread_fork.c $(LIB) $(LD) -o pthread_fork.out
