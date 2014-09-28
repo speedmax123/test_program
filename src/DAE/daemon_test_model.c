@@ -1,4 +1,5 @@
 #include "apue.h"
+#include <string.h>
 #include <stdio.h>
 #include <unistd.h>
 #include <syslog.h>
@@ -6,6 +7,10 @@
 #include <signal.h>
 #include <sys/time.h>
 #include <sys/resource.h>
+#include <sys/stat.h>
+
+#define LOCKFILE "/var/run/daemon.pid"
+#define LOCKMODE "S_IRUSR|S_IWUSR|S_IRUSR|S_IROTH"
 
 void
 daeomnize(const char *cmd) {
@@ -61,6 +66,30 @@ daeomnize(const char *cmd) {
         syslog(LOG_ERR, "expected file descriptor %d %d %d", fd0, fd1, fd2);
         exit(1);
     }
+}
+
+int
+already_running(void) {
+	int	    fd;
+    char    buf[16];
+
+    fd = open(LOCKFILE, O_RDWR|O_CREAT, LOCKMODE);
+    if (fd < 0) {
+        syslog(LOG_ERR, "can not open %s: %s", LOCKFILE, strerror(errno));
+        exit(1);
+    }
+    if (lockfile(fd) < 0) {
+        if (errno == EACCES || errno == EAGAIN) {
+            close(fd);
+            return(1);
+        }
+        syslog(LOG_ERR, "can not lock %s: %s", LOCKFILE, strerror(errno));
+        exit(1);
+    }
+    ftruncate(fd, 0);
+    sprintf(buf, "%ld", (long)getpid());
+    write(fd, buf, strlen(buf) + 1);
+    return(0);
 }
 
 int
